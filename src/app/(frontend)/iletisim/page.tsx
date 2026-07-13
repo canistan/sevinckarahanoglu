@@ -89,16 +89,36 @@ export default async function Contact() {
             </div>
 
             {/* Google Maps Embed */}
-            <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '100%', minHeight: '400px' }}>
+            <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '100%', minHeight: '450px', position: 'relative', display: 'flex', flexDirection: 'column' }}>
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.584742410313!2d29.029540776510795!3d41.01244342571217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab80164c636f3%3A0xe54dbfb2cbba6ce3!2sBarbaros%2C%20Nuhkuyusu%20Cd%20No%3A48A%2C%2034662%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1715000000000!5m2!1str!2str" 
                 width="100%" 
                 height="100%" 
-                style={{ border: 0, minHeight: '400px' }} 
+                style={{ border: 0, flex: 1, minHeight: '400px', filter: 'grayscale(60%) sepia(10%) hue-rotate(130deg) contrast(1.1)' }} 
                 allowFullScreen={true} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+              <a 
+                href={mapsUrl}
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'var(--color-primary-dark)',
+                  color: 'white',
+                  padding: '1.2rem',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  transition: 'background-color 0.3s ease'
+                }}
+              >
+                📍 Haritalar'da Yol Tarifi Al
+              </a>
             </div>
 
           </div>

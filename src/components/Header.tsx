@@ -32,6 +32,7 @@ export default function Header() {
           <Link href="/hakkimda" className="header__link" onClick={() => setIsMenuOpen(false)}>Hakkımda</Link>
           <Link href="/uzmanlik-alanlari" className="header__link" onClick={() => setIsMenuOpen(false)}>Uzmanlık Alanları</Link>
           <Link href="/blog" className="header__link" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+          <Link href="/basin" className="header__link" onClick={() => setIsMenuOpen(false)}>Basın</Link>
           <Link href="/iletisim" className="header__link" onClick={() => setIsMenuOpen(false)}>İletişim</Link>
           <a href={`tel:${phoneClean}`} className="header__cta" id="header-cta" onClick={() => setIsMenuOpen(false)}>
             <span>📞</span>
