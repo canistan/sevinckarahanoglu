@@ -560,8 +560,10 @@ p {
 
 .hero__image-container {
   position: relative;
-  width: 480px;
-  height: 580px;
+  aspect-ratio: 480 / 580;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
   border-radius: var(--radius-2xl);
   overflow: hidden;
   box-shadow: var(--shadow-2xl);
@@ -1121,8 +1123,7 @@ p {
     justify-content: center;
   }
   .hero__image-container {
-    width: 380px;
-    height: 460px;
+    max-width: 380px;
   }
   .hero__stats {
     left: 50%;
@@ -1157,8 +1158,7 @@ p {
     padding: var(--space-12) var(--space-6) var(--space-16);
   }
   .hero__image-container {
-    width: 300px;
-    height: 380px;
+    max-width: 300px;
   }
   .hero__stats {
     bottom: -20px;
