@@ -11,7 +11,7 @@ export default async function Footer() {
   const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
   const phone = settings?.phone || '0552 170 66 00';
   const phoneClean = phone.replace(/[^0-9+]/g, '');
-  const workingHours = settings?.workingHours || 'Pazartesi – Cumartesi 09:00 – 19:30';
+  // const workingHours = settings?.workingHours || 'Pazartesi – Cumartesi 09:00 – 19:30';
   const instagram = settings?.instagramUrl || 'https://www.instagram.com/dishekimisevinckarahanoglu/';
   const facebook = settings?.facebookUrl || 'https://www.facebook.com/profile.php?id=100094564800152#';
 
@@ -82,7 +82,7 @@ export default async function Footer() {
               📍 {address}
             </span>
             <span className="footer__link">
-              🕐 {workingHours}
+              🕐 Pzt-Cum: 09:00 - 19:30 | Cmt: 09:00 - 18:00
             </span>
           </div>
         </div>

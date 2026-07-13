@@ -35,7 +35,7 @@ export default async function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'flex-start' }}>
             
             {/* Image Side */}
-            <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', aspectRatio: '3/4', backgroundColor: 'var(--color-primary-100)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'sticky', top: '120px', borderRadius: '20px', overflow: 'hidden', aspectRatio: '3/4', backgroundColor: 'var(--color-primary-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'max-content' }}>
               {profileImageUrl ? (
                 <Image
                   src={profileImageUrl}
@@ -45,10 +45,13 @@ export default async function About() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               ) : (
-                <div style={{ textAlign: 'center', color: 'var(--color-primary-dark)' }}>
-                  <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📷</div>
-                  <p style={{ fontWeight: 500 }}>Profil Fotoğrafı Bekleniyor</p>
-                </div>
+                <Image
+                  src="/images/Sevinc-Karahanoglu-Dis-Hekimi.jpg"
+                  alt="Dt. Sevinç Karahanoğlu"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               )}
             </div>
 

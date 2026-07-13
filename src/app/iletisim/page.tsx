@@ -14,7 +14,7 @@ export default async function Contact() {
   const phoneClean = phone.replace(/[^0-9+]/g, '');
   const email = settings?.email || 'sevincdent@gmail.com';
   const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
-  const workingHours = settings?.workingHours || 'Pazartesi – Cumartesi 09:00 – 19:30';
+  // const workingHours = settings?.workingHours || 'Pazartesi – Cumartesi 09:00 – 19:30';
   const mapsUrl = settings?.mapsUrl || 'https://www.google.com/maps/place/SEVİNÇ+DENT+AĞIZ+VE+DİŞ+SAĞLIĞI+POLİKLİNİĞİ/@41.0175345,29.0321157,17z';
 
   return (
@@ -48,7 +48,7 @@ export default async function Contact() {
                   <div>
                     <h4 style={{ color: 'var(--color-primary-dark)', marginBottom: '0.2rem' }}>Adres</h4>
                     <p style={{ color: 'var(--color-text-light)', lineHeight: '1.5' }}>{address}</p>
-                    <p style={{ color: 'var(--color-primary)', fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: 500 }}>✓ Özel Otopark ve Vale Hizmeti Mevcuttur</p>
+                    <p style={{ color: 'var(--color-primary)', fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: 500 }}>✓ Özel Otopark Mevcuttur</p>
                   </div>
                 </div>
 
@@ -75,7 +75,8 @@ export default async function Contact() {
                   <div style={{ fontSize: '1.5rem', color: 'var(--color-primary)' }}>🕒</div>
                   <div>
                     <h4 style={{ color: 'var(--color-primary-dark)', marginBottom: '0.2rem' }}>Çalışma Saatleri</h4>
-                    <p style={{ color: 'var(--color-text-light)' }}>{workingHours}</p>
+                    <p style={{ color: 'var(--color-text-light)' }}>Pazartesi – Cuma: 09:00 – 19:30</p>
+                    <p style={{ color: 'var(--color-text-light)' }}>Cumartesi: 09:00 – 18:00</p>
                     <p style={{ color: 'var(--color-text-light)', opacity: 0.7, fontSize: '0.9rem' }}>Pazar günleri kapalıyız.</p>
                   </div>
                 </div>

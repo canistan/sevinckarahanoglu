@@ -74,11 +74,14 @@ export default async function Home() {
                   sizes="(max-width: 768px) 300px, (max-width: 1024px) 380px, 480px"
                 />
               ) : (
-                <div style={{ color: 'var(--color-primary-dark)' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📷</div>
-                  <p style={{ fontWeight: 500 }}>Fotoğraf Bekleniyor</p>
-                  <p style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.5rem' }}>Admin panelinden görsel yükleyebilirsiniz</p>
-                </div>
+                <Image
+                  src="/images/SevincKarahanoglu.jpg"
+                  alt="Dt. Sevinç Karahanoğlu - Diş Hekimi"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority
+                  sizes="(max-width: 768px) 300px, (max-width: 1024px) 380px, 480px"
+                />
               )}
             </div>
             <div className="hero__image-decoration"></div>
@@ -104,7 +107,7 @@ export default async function Home() {
           <div className="about__image-wrapper">
             <div className="about__image">
               <Image
-                src="/images/clinic-interior.png"
+                src="/images/dis-hekimi-sevinc-karahanoglu.jpg"
                 alt="Modern diş kliniği iç mekan"
                 width={600}
                 height={500}

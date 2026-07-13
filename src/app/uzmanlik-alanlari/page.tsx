@@ -50,7 +50,7 @@ export default async function SpecialtiesPage() {
         {specialties.length > 0 ? (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' }}>
             {specialties.map((specialty: any) => (
-              <Link href={`/uzmanlik-alanlari/${specialty.slug}`} key={specialty.id} style={{ textDecoration: 'none' }}>
+              <Link href={`/uzmanlik-alanlari/${specialty.slug}`} key={specialty.id} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
                 <div className="specialty-card-item">
                   <div style={{ position: 'relative', width: '100%', height: '240px', backgroundColor: '#f0f4f8' }}>
                     {specialty.featuredImage?.url ? (
