@@ -1086,7 +1086,7 @@ p {
    ==================================== */
 @media (max-width: 1024px) {
   .hero {
-    background-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
     color: var(--color-white);
   }
   .hero__inner {
@@ -1121,6 +1121,13 @@ p {
   }
   .hero__actions {
     justify-content: center;
+  }
+  .hero .btn--outline {
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .hero .btn--outline:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
   .hero__image-container {
     max-width: 380px;
