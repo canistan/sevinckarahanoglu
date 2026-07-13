@@ -8,11 +8,11 @@ const isLive = process.env.NEXT_PUBLIC_SITE_LIVE === "true";
 
 export const metadata: Metadata = {
   title: {
-    default: "Dt. Sevinç Karahanoğlu | Diş Hekimi — Ataşehir, İstanbul",
+    default: "Dt. Sevinç Karahanoğlu | Diş Hekimi — Altunizade, İstanbul",
     template: "%s | Dt. Sevinç Karahanoğlu",
   },
   description:
-    "Dt. Sevinç Karahanoğlu — 25 yıllık deneyime sahip diş hekimi. Marmara Üniversitesi mezunu. İmplant, estetik diş hekimliği, zirkonyum kaplama ve daha fazlası. Ataşehir, İstanbul.",
+    "Dt. Sevinç Karahanoğlu — 25 yıllık deneyime sahip diş hekimi. Marmara Üniversitesi mezunu. İmplant, estetik diş hekimliği, zirkonyum kaplama ve daha fazlası. Altunizade, İstanbul.",
   robots: isLive
     ? { index: true, follow: true }
     : { index: false, follow: false },

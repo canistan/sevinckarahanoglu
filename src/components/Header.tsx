@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from 'react';
 
 export default function Header() {
@@ -17,8 +18,13 @@ export default function Header() {
     <header className="header" id="header">
       <div className="header__inner">
         <Link href="/" className="header__logo" aria-label="Ana Sayfa" onClick={() => setIsMenuOpen(false)}>
-          <span className="header__logo-name">Dt. Sevinç Karahanoğlu</span>
-          <span className="header__logo-title">Diş Hekimi</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+            <Image src="/logo-premium.png" alt="Dt. Sevinç Karahanoğlu Logo" width={45} height={45} style={{ borderRadius: '8px', objectFit: 'contain' }} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span className="header__logo-name" style={{ marginBottom: '-2px' }}>Dt. Sevinç Karahanoğlu</span>
+              <span className="header__logo-title">DİŞ HEKİMİ</span>
+            </div>
+          </div>
         </Link>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--active' : ''}`} aria-label="Ana Menü">
