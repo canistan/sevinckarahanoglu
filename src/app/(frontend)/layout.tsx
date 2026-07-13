@@ -5,8 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 
-const isLive = process.env.NEXT_PUBLIC_SITE_LIVE === "true";
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://sevinckarahanoglu.com"),
   title: {
@@ -15,14 +13,22 @@ export const metadata: Metadata = {
   },
   description:
     "Dt. Sevinç Karahanoğlu — 25 yıllık deneyime sahip diş hekimi. Marmara Üniversitesi mezunu. İmplant, estetik diş hekimliği, zirkonyum kaplama ve daha fazlası. Altunizade, İstanbul.",
-  robots: isLive
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "tr_TR",
     siteName: "Dt. Sevinç Karahanoğlu",
     url: "https://sevinckarahanoglu.com",
+    title: "Dt. Sevinç Karahanoğlu | Diş Hekimi",
+    description: "25 yıllık deneyime sahip uzman diş hekimi. İmplant, estetik diş hekimliği, zirkonyum kaplama. Altunizade, İstanbul.",
+    images: [
+      {
+        url: "/images/clinic-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Klinik",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
