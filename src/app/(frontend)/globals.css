@@ -1198,3 +1198,15 @@ p {
     right: 20px;
   }
 }
+
+/* Utilities */
+.sticky-on-desktop {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .sticky-on-desktop {
+    position: sticky;
+    top: 120px;
+  }
+}

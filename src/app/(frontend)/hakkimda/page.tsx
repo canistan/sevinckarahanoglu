@@ -35,7 +35,7 @@ export default async function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'flex-start' }}>
             
             {/* Image Side */}
-            <div style={{ position: 'sticky', top: '120px', borderRadius: '20px', overflow: 'hidden', aspectRatio: '3/4', backgroundColor: 'var(--color-primary-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'max-content' }}>
+            <div className="sticky-on-desktop" style={{ borderRadius: '20px', overflow: 'hidden', aspectRatio: '3/4', backgroundColor: 'var(--color-primary-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'max-content' }}>
               {profileImageUrl ? (
                 <Image
                   src={profileImageUrl}

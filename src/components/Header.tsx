@@ -67,6 +67,10 @@ export default function Header() {
             gap: 1.5rem;
             box-shadow: 0 10px 15px rgba(0,0,0,0.1);
           }
+          .header__nav :global(.header__link) {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+          }
           .header__nav--active {
             display: flex;
           }
