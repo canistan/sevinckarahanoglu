@@ -43,8 +43,8 @@ export const CookieConsent: React.FC = () => {
       gap: '1rem',
       borderTop: '3px solid var(--color-primary)'
     }}>
-      <div style={{ maxWidth: '1200px', width: '100%', display: 'flex', flexDirection: 'column', md: { flexDirection: 'row' }, gap: '1.5rem', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ flex: 1, fontSize: '0.95rem', lineHeight: 1.5, opacity: 0.9 }}>
+      <div style={{ maxWidth: '1200px', width: '100%', display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ flex: 1, minWidth: '300px', fontSize: '0.95rem', lineHeight: 1.5, opacity: 0.9 }}>
           <p style={{ margin: 0 }}>
             Web sitemizde size en iyi deneyimi sunabilmek, site trafiğimizi analiz etmek ve kişiselleştirilmiş içerikler göstermek amacıyla çerezler (cookies) kullanıyoruz. Çerez kullanımına dair detaylı bilgi için <Link href="/cerez-politikasi" style={{ color: 'var(--color-primary-light)', textDecoration: 'underline' }}>Çerez Politikamızı</Link> ve <Link href="/kvkk" style={{ color: 'var(--color-primary-light)', textDecoration: 'underline' }}>KVKK Aydınlatma Metnimizi</Link> inceleyebilirsiniz.
           </p>
