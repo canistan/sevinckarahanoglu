@@ -31,7 +31,7 @@ export default async function Home() {
           <div className="hero__content">
             <div className="hero__badge animate-fade-in-up">
               <span className="hero__badge-dot"></span>
-              Marmara Üniversitesi Mezunu
+              Diş Hekimi - Marmara Üniversitesi Mezunu
             </div>
 
             <h1 className="hero__title animate-fade-in-up delay-1">
@@ -166,7 +166,7 @@ export default async function Home() {
                 <div className="about__detail-icon">📍</div>
                 <div>
                   <div className="about__detail-label">Konum</div>
-                  <div className="about__detail-value">{address.split(',').pop()?.trim() || 'Üsküdar, İstanbul'}</div>
+                  <div className="about__detail-value">Altunizade, Üsküdar</div>
                 </div>
               </div>
               <div className="about__detail">

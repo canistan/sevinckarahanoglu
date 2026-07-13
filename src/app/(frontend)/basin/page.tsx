@@ -6,15 +6,34 @@ export const metadata = {
 };
 
 // Bu array'e kullanıcının vereceği YouTube Linkleri (veya ID'leri) eklenecektir.
-const VIDEOS = [
-  // Örnek: { id: 'YOUTUBE_VIDEO_ID', title: 'Video Başlığı' }
+const VIDEOS: { id: string; title: string }[] = [
+  { id: 'FBsWHMMnAeU', title: "İmplant Nedir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'tW_q4xHCHK4', title: "Gülüş Tasarımı Nedir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'uLsdNPUSesw', title: "Diş Eti Hastalıkları | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: '1Z6cT9Di6xE', title: "Çocuklarda İlk Diş Muayenesi Ne Zaman Olmalıdır? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: '-3-pFQB8tAk', title: "İmplant Nedir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: '0NV1VCVs4yk', title: "Gülüş Tasarımı Nedir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'Gs4Ei7eowLg', title: "Ortodontik Tedaviler Nelerdir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'y1pSq0piiyg', title: "Çocuklarda İlk Diş Muayenesi Ne Zaman Olmalıdır? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'QOlUOlnHwSw', title: "Diş Eti Hastalıkları | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: 'IBZsmcpiLM0', title: "20 Yaş Dişleri Herkeste Çıkar mı? | DT. Sevinç Karahanoğlu | 8'de Sağlık" },
+  { id: '_oIo48Bqs0w', title: "Ortodonti Nedir? | DT. Sevinç Karahanoğlu | 8'de Sağlık" }
 ];
 
 export default function BasinPage() {
   return (
     <main>
       {/* Page Header */}
-      <section className="page-header" style={{ paddingTop: '150px', paddingBottom: '60px', backgroundColor: 'var(--color-primary-dark)', textAlign: 'center', color: 'white' }}>
+      <section className="page-header" style={{ 
+        paddingTop: '150px', 
+        paddingBottom: '60px', 
+        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/basin-hero.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        textAlign: 'center', 
+        color: 'white' 
+      }}>
         <div className="container">
           <span style={{ display: 'block', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-primary-light)', marginBottom: '0.5rem' }}>
             Medya & Videolar

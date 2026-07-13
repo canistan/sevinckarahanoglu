@@ -20,10 +20,19 @@ export default async function Contact() {
   return (
     <main>
       {/* Page Header */}
-      <section className="page-header" style={{ paddingTop: '150px', paddingBottom: '60px', backgroundColor: 'var(--color-primary-50)', textAlign: 'center' }}>
+      <section className="page-header" style={{ 
+        paddingTop: '150px', 
+        paddingBottom: '60px', 
+        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/basin-hero.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        textAlign: 'center', 
+        color: 'white' 
+      }}>
         <div className="container">
-          <span className="section__subtitle">Bize Ulaşın</span>
-          <h1 className="section__title" style={{ marginTop: '0.5rem', marginBottom: '0' }}>İletişim</h1>
+          <span className="section__subtitle" style={{ color: 'var(--color-primary-light)' }}>Bize Ulaşın</span>
+          <h1 className="section__title" style={{ marginTop: '0.5rem', marginBottom: '0', color: 'white' }}>İletişim</h1>
         </div>
       </section>
 
