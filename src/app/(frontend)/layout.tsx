@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Dt. Sevinç Karahanoğlu — 25 yıllık deneyime sahip diş hekimi. Marmara Üniversitesi mezunu. İmplant, estetik diş hekimliği, zirkonyum kaplama ve daha fazlası. Altunizade, İstanbul.",
   },
   alternates: {
-    canonical: "https://sevinckarahanoglu.com",
+    // Let Next.js auto-generate canonical URLs per-page using metadataBase
   },
   manifest: "/manifest.json",
   verification: {
