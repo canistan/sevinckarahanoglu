@@ -22,37 +22,28 @@ export default async function SpecialtiesPage() {
 
   return (
     <main>
-      <style dangerouslySetInnerHTML={{__html: `
-        .specialty-card-item {
-          background-color: #fff;
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: var(--shadow-md);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        .specialty-card-item:hover {
-          transform: translateY(-10px);
-          box-shadow: var(--shadow-lg);
-        }
-      `}} />
-      <section className="page-header" style={{ padding: '8rem 2rem 4rem', backgroundColor: 'var(--color-primary)', color: 'white', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Uzmanlık Alanlarımız</h1>
-        <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
+      <section className="page-header" style={{ 
+        padding: '10rem 2rem 6rem', 
+        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/specialties-hero.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        color: 'white', 
+        textAlign: 'center' 
+      }}>
+        <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', color: 'var(--color-white)', textShadow: '0 2px 10px rgba(0,0,0,0.2)' }}>Uzmanlık Alanlarımız</h1>
+        <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto', opacity: 0.95, lineHeight: 1.6, textShadow: '0 1px 5px rgba(0,0,0,0.2)' }}>
           Sağlıklı ve estetik bir gülüş için en modern diş hekimliği teknolojilerini kullanarak sunduğumuz tedaviler.
         </p>
       </section>
 
       <section className="specialties-grid" style={{ padding: '4rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
         {specialties.length > 0 ? (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' }}>
+          <div className="specialties__grid">
             {specialties.map((specialty: any) => (
               <Link href={`/uzmanlik-alanlari/${specialty.slug}`} key={specialty.id} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
                 <div className="specialty-card-item">
-                  <div style={{ position: 'relative', width: '100%', height: '240px', backgroundColor: '#f0f4f8' }}>
+                  <div style={{ position: 'relative', width: '100%', height: '240px', backgroundColor: 'var(--color-primary-light)' }}>
                     {specialty.featuredImage?.url ? (
                       <Image 
                         src={specialty.featuredImage.url} 
@@ -68,7 +59,7 @@ export default async function SpecialtiesPage() {
                     )}
                   </div>
                   <div style={{ padding: '2rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h2 style={{ fontSize: '1.5rem', color: 'var(--color-primary-dark)', marginBottom: '1rem' }}>
+                    <h2 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '1rem' }}>
                       {specialty.title}
                     </h2>
                     <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', marginBottom: '1.5rem', flexGrow: 1 }}>

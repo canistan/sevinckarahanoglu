@@ -8,6 +8,14 @@ export default async function Home() {
   const settings = await payload.findGlobal({ slug: 'site-settings' }) as any;
   const homeData = await payload.findGlobal({ slug: 'home-page' }) as any;
 
+  // Fetch specialties
+  const specialtiesReq = await payload.find({
+    collection: 'specialties',
+    depth: 1,
+    limit: 6,
+  });
+  const specialties = specialtiesReq.docs;
+
   const phone = settings?.phone || '0552 170 66 00';
   const phoneClean = phone.replace(/[^0-9+]/g, '');
   const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
@@ -189,64 +197,54 @@ export default async function Home() {
         </div>
 
         <div className="specialties__grid">
-          <Link href="/uzmanlik-alanlari/implant" className="specialty-card" id="specialty-implant">
-            <div className="specialty-card__icon">🦷</div>
-            <h3 className="specialty-card__title">İmplant Tedavisi</h3>
-            <p className="specialty-card__text">
-              Kayıp dişlerin en doğal ve kalıcı çözümü. Titanyum vidalarla
-              çene kemiğine entegre olan, gerçek diş hissi veren tedavi.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
-          </Link>
+          {specialties.length > 0 ? (
+            specialties.map((specialty: any) => (
+              <Link href={`/uzmanlik-alanlari/${specialty.slug}`} key={specialty.id} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
+                <div className="specialty-card-item">
+                  <div style={{ position: 'relative', width: '100%', height: '240px', backgroundColor: 'var(--color-primary-light)' }}>
+                    {specialty.featuredImage?.url ? (
+                      <Image 
+                        src={specialty.featuredImage.url} 
+                        alt={specialty.title} 
+                        fill 
+                        style={{ objectFit: 'cover' }} 
+                        sizes="(max-width: 768px) 100vw, 350px"
+                      />
+                    ) : (
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', fontSize: '4rem' }}>
+                        🦷
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ padding: '2rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '1rem', marginTop: 0 }}>
+                      {specialty.title}
+                    </h3>
+                    <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', marginBottom: '1.5rem', flexGrow: 1 }}>
+                      {specialty.shortDescription || 'Bu tedavi hakkında detaylı bilgi almak için tıklayın.'}
+                    </p>
+                    <span style={{ 
+                      color: 'var(--color-accent)', 
+                      fontWeight: 600, 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.5rem',
+                      marginTop: 'auto'
+                    }}>
+                      Detayları İncele <span>→</span>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Uzmanlık alanları yükleniyor...</p>
+          )}
+        </div>
 
-          <Link href="/uzmanlik-alanlari/estetik-dis-hekimligi" className="specialty-card" id="specialty-estetik">
-            <div className="specialty-card__icon">✨</div>
-            <h3 className="specialty-card__title">Estetik Diş Hekimliği</h3>
-            <p className="specialty-card__text">
-              Gülüş tasarımı, diş beyazlatma ve porselen lamineler ile
-              hayalinizdeki gülüşe kavuşun.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
-          </Link>
-
-          <Link href="/uzmanlik-alanlari/zirkonyum-kaplama" className="specialty-card" id="specialty-zirkonyum">
-            <div className="specialty-card__icon">💎</div>
-            <h3 className="specialty-card__title">Zirkonyum Kaplama</h3>
-            <p className="specialty-card__text">
-              Doğal diş görünümüne en yakın, dayanıklı ve biyouyumlu
-              malzeme ile estetik restorasyonlar.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
-          </Link>
-
-          <Link href="/uzmanlik-alanlari/kanal-tedavisi" className="specialty-card" id="specialty-kanal">
-            <div className="specialty-card__icon">🔬</div>
-            <h3 className="specialty-card__title">Kanal Tedavisi</h3>
-            <p className="specialty-card__text">
-              İleri teknoloji ekipmanlarla ağrısız ve konforlu kanal tedavisi.
-              Doğal dişinizi kurtarmanın en etkili yolu.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
-          </Link>
-
-          <Link href="/uzmanlik-alanlari/dis-beyazlatma" className="specialty-card" id="specialty-beyazlatma">
-            <div className="specialty-card__icon">🌟</div>
-            <h3 className="specialty-card__title">Diş Beyazlatma</h3>
-            <p className="specialty-card__text">
-              Profesyonel beyazlatma teknikleriyle dişlerinizi birkaç ton
-              daha beyaz hale getirin.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
-          </Link>
-
-          <Link href="/uzmanlik-alanlari/ortodonti" className="specialty-card" id="specialty-ortodonti">
-            <div className="specialty-card__icon">😁</div>
-            <h3 className="specialty-card__title">Ortodonti</h3>
-            <p className="specialty-card__text">
-              Şeffaf plak ve braket sistemleriyle dişlerinizi düzgün bir
-              sıraya kavuşturun.
-            </p>
-            <span className="specialty-card__arrow">Detaylar →</span>
+        <div className="specialties__actions" style={{ marginTop: '3rem', textAlign: 'center' }}>
+          <Link href="/uzmanlik-alanlari" className="btn btn--outline">
+            Tüm Uzmanlık Alanlarını Gör
           </Link>
         </div>
       </section>
