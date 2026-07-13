@@ -1,28 +1,267 @@
-export default function Home() {
+import Image from "next/image";
+import Link from "next/link";
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+
+export default async function Home() {
+  const payload = await getPayload({ config: configPromise })
+  const settings = await payload.findGlobal({ slug: 'site-settings' }) as any;
+  const homeData = await payload.findGlobal({ slug: 'home-page' }) as any;
+
+  const phone = settings?.phone || '0552 170 66 00';
+  const phoneClean = phone.replace(/[^0-9+]/g, '');
+  const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
+  
+  // Hero Image'ı Payload'dan al, yoksa placeholder göster
+  const heroImageUrl = homeData?.heroImage?.url || null;
+
   return (
-    <main style={{ 
-      display: "flex", 
-      alignItems: "center", 
-      justifyContent: "center", 
-      minHeight: "100vh",
-      flexDirection: "column",
-      gap: "var(--space-4)",
-      fontFamily: "var(--font-family)",
-    }}>
-      <h1 style={{ 
-        color: "var(--color-primary)", 
-        fontSize: "var(--font-size-4xl)",
-        fontWeight: 600,
-      }}>
-        Dt. Sevinç Karahanoğlu
-      </h1>
-      <p style={{ 
-        color: "var(--color-gray-500)", 
-        fontSize: "var(--font-size-lg)",
-        textAlign: "center",
-      }}>
-        Site yapım aşamasındadır.
-      </p>
-    </main>
+    <>
+      {/* ====== HERO SECTION ====== */}
+      <section className="hero" id="hero">
+        <div className="hero__inner">
+          <div className="hero__content">
+            <div className="hero__badge animate-fade-in-up">
+              <span className="hero__badge-dot"></span>
+              Marmara Üniversitesi Mezunu
+            </div>
+
+            <h1 className="hero__title animate-fade-in-up delay-1">
+              Sağlıklı Gülüşler,{" "}
+              <span className="hero__title-highlight">Güvenilir Eller</span>
+            </h1>
+
+            <p className="hero__description animate-fade-in-up delay-2">
+              25 yılı aşkın klinik deneyimimle, her hastama özel tedavi planları
+              oluşturuyor, konforlu ve güvenilir bir diş hekimliği deneyimi
+              sunuyorum.
+            </p>
+
+            <div className="hero__actions animate-fade-in-up delay-3">
+              <a href={`tel:${phoneClean}`} className="btn btn--primary" id="hero-cta-phone">
+                📞 Randevu Al
+              </a>
+              <a 
+                href={`https://wa.me/${phoneClean.replace('+', '')}?text=Merhaba,%20randevu%20almak%20istiyorum.`} 
+                className="btn btn--outline" 
+                id="hero-cta-whatsapp"
+                style={{ borderColor: '#25D366', color: '#25D366' }}
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '8px', verticalAlign: 'text-bottom' }}>
+                  <path d="M16.05 32h-.05A16 16 0 0 1 2.3 24.1L0 32l8.1-2.2A16 16 0 1 1 16.05 32z" fill="#25D366"/>
+                  <path d="M16.05 2.7A13.3 13.3 0 0 0 4.6 20.3L3.1 25.8l5.7-1.5a13.3 13.3 0 1 0 7.25-21.6z" fill="#FAFAFA"/>
+                  <path d="M22.5 18.2c-.4-.2-2.1-1-2.5-1.1-.3-.1-.6-.2-.8.1s-1 1.1-1.2 1.4c-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1-1-1.8-2.2-2-2.5-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.6.2-.2.3-.4.4-.6.1-.2 0-.4 0-.6-.1-.2-.9-2-1.2-2.8-.3-.8-.6-.7-.8-.7h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.9 1.4 3.7 1.6 3.9.2.3 2.7 4.1 6.5 5.7 3.8 1.6 3.8 1.1 4.5 1 .7-.1 2.1-.9 2.5-1.7.3-.8.3-1.5.2-1.7-.1-.2-.4-.3-.8-.5z" fill="#25D366"/>
+                </svg>
+                WhatsApp
+              </a>
+              <Link href="/hakkimda" className="btn btn--outline" id="hero-cta-about">
+                Hakkımda →
+              </Link>
+            </div>
+          </div>
+
+          <div className="hero__image-wrapper animate-scale-in delay-2">
+            <div className="hero__image-container" style={{ backgroundColor: 'var(--color-primary-50)', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '2rem' }}>
+              {heroImageUrl ? (
+                <Image
+                  src={heroImageUrl}
+                  alt="Dt. Sevinç Karahanoğlu - Diş Hekimi"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority
+                  sizes="(max-width: 768px) 300px, (max-width: 1024px) 380px, 480px"
+                />
+              ) : (
+                <div style={{ color: 'var(--color-primary-dark)' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📷</div>
+                  <p style={{ fontWeight: 500 }}>Fotoğraf Bekleniyor</p>
+                  <p style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '0.5rem' }}>Admin panelinden görsel yükleyebilirsiniz</p>
+                </div>
+              )}
+            </div>
+            <div className="hero__image-decoration"></div>
+            <div className="hero__image-decoration hero__image-decoration--2"></div>
+
+            <div className="hero__stats">
+              <div className="hero__stat">
+                <div className="hero__stat-number">25+</div>
+                <div className="hero__stat-label">Yıl Deneyim</div>
+              </div>
+              <div className="hero__stat">
+                <div className="hero__stat-number">10K+</div>
+                <div className="hero__stat-label">Mutlu Hasta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== ABOUT PREVIEW ====== */}
+      <section className="about section" id="about-preview">
+        <div className="about__inner">
+          <div className="about__image-wrapper">
+            <div className="about__image">
+              <Image
+                src="/images/clinic-interior.png"
+                alt="Modern diş kliniği iç mekan"
+                width={600}
+                height={500}
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="about__accent"></div>
+          </div>
+
+          <div className="about__content">
+            <span className="section__subtitle">Hakkımda</span>
+            <h2 className="section__title" style={{ textAlign: "left" }}>
+              Hekimlik Felsefem
+            </h2>
+
+            <div className="about__philosophy">
+              <p className="about__philosophy-text">
+                &ldquo;Her hastam benim için biriciktir. Tedavi planlarımı oluştururken sadece dişleri değil, hastamın genel sağlığını, beklentilerini ve yaşam kalitesini bir bütün olarak değerlendiririm.&rdquo;
+              </p>
+            </div>
+
+            <p className="about__text">
+              1975 yılında Erzurum’da dünyaya gelen Karahanoğlu, lise eğitimini köklü kurumlardan Haydarpaşa Lisesi’nde tamamlamış; ardından 2000 yılında Marmara Üniversitesi Diş Hekimliği Fakültesi’nden başarıyla mezun olmuştur.
+            </p>
+            <p className="about__text">
+              Meslek hayatına 2000 yılında başlayan ve binlerce hastanın gülüşüne dokunan Dt. Karahanoğlu, edindiği bu derin tecrübeyi kendi vizyonuyla harmanlayarak, 2025 yılında <strong>SevinçDent Ağız ve Diş Sağlığı Polikliniği</strong>'ni hayata geçirmiştir.
+            </p>
+
+            <div className="about__details">
+              <div className="about__detail">
+                <div className="about__detail-icon">🎓</div>
+                <div>
+                  <div className="about__detail-label">Eğitim</div>
+                  <div className="about__detail-value">
+                    Marmara Üniversitesi Diş Hekimliği
+                  </div>
+                </div>
+              </div>
+              <div className="about__detail">
+                <div className="about__detail-icon">⏳</div>
+                <div>
+                  <div className="about__detail-label">Deneyim</div>
+                  <div className="about__detail-value">25+ Yıl Klinik Deneyim</div>
+                </div>
+              </div>
+              <div className="about__detail">
+                <div className="about__detail-icon">📍</div>
+                <div>
+                  <div className="about__detail-label">Konum</div>
+                  <div className="about__detail-value">{address.split(',').pop()?.trim() || 'Üsküdar, İstanbul'}</div>
+                </div>
+              </div>
+              <div className="about__detail">
+                <div className="about__detail-icon">🏥</div>
+                <div>
+                  <div className="about__detail-label">Klinik</div>
+                  <div className="about__detail-value">SevinçDent</div>
+                </div>
+              </div>
+            </div>
+
+            <Link href="/hakkimda" className="btn btn--outline" id="about-cta">
+              Daha Fazla Bilgi →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== SPECIALTIES ====== */}
+      <section className="section section--gray" id="specialties-preview">
+        <div className="section__header">
+          <span className="section__subtitle">Uzmanlık Alanları</span>
+          <h2 className="section__title">Tedavi Alanlarım</h2>
+          <p className="section__description">
+            Her bir uzmanlık alanında sürekli eğitimlerle kendimi geliştiriyor,
+            en güncel teknikleri hastalarıma sunuyorum.
+          </p>
+        </div>
+
+        <div className="specialties__grid">
+          <Link href="/uzmanlik-alanlari/implant" className="specialty-card" id="specialty-implant">
+            <div className="specialty-card__icon">🦷</div>
+            <h3 className="specialty-card__title">İmplant Tedavisi</h3>
+            <p className="specialty-card__text">
+              Kayıp dişlerin en doğal ve kalıcı çözümü. Titanyum vidalarla
+              çene kemiğine entegre olan, gerçek diş hissi veren tedavi.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+
+          <Link href="/uzmanlik-alanlari/estetik-dis-hekimligi" className="specialty-card" id="specialty-estetik">
+            <div className="specialty-card__icon">✨</div>
+            <h3 className="specialty-card__title">Estetik Diş Hekimliği</h3>
+            <p className="specialty-card__text">
+              Gülüş tasarımı, diş beyazlatma ve porselen lamineler ile
+              hayalinizdeki gülüşe kavuşun.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+
+          <Link href="/uzmanlik-alanlari/zirkonyum-kaplama" className="specialty-card" id="specialty-zirkonyum">
+            <div className="specialty-card__icon">💎</div>
+            <h3 className="specialty-card__title">Zirkonyum Kaplama</h3>
+            <p className="specialty-card__text">
+              Doğal diş görünümüne en yakın, dayanıklı ve biyouyumlu
+              malzeme ile estetik restorasyonlar.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+
+          <Link href="/uzmanlik-alanlari/kanal-tedavisi" className="specialty-card" id="specialty-kanal">
+            <div className="specialty-card__icon">🔬</div>
+            <h3 className="specialty-card__title">Kanal Tedavisi</h3>
+            <p className="specialty-card__text">
+              İleri teknoloji ekipmanlarla ağrısız ve konforlu kanal tedavisi.
+              Doğal dişinizi kurtarmanın en etkili yolu.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+
+          <Link href="/uzmanlik-alanlari/dis-beyazlatma" className="specialty-card" id="specialty-beyazlatma">
+            <div className="specialty-card__icon">🌟</div>
+            <h3 className="specialty-card__title">Diş Beyazlatma</h3>
+            <p className="specialty-card__text">
+              Profesyonel beyazlatma teknikleriyle dişlerinizi birkaç ton
+              daha beyaz hale getirin.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+
+          <Link href="/uzmanlik-alanlari/ortodonti" className="specialty-card" id="specialty-ortodonti">
+            <div className="specialty-card__icon">😁</div>
+            <h3 className="specialty-card__title">Ortodonti</h3>
+            <p className="specialty-card__text">
+              Şeffaf plak ve braket sistemleriyle dişlerinizi düzgün bir
+              sıraya kavuşturun.
+            </p>
+            <span className="specialty-card__arrow">Detaylar →</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* ====== CTA SECTION ====== */}
+      <section className="cta" id="cta">
+        <div className="cta__inner">
+          <h2 className="cta__title">Sağlıklı Bir Gülüş İçin İlk Adımı Atın</h2>
+          <p className="cta__description">
+            Tedavi süreciniz hakkında bilgi almak ve randevu oluşturmak için
+            hemen arayın. Size en uygun tedavi planını birlikte oluşturalım.
+          </p>
+          <a href={`tel:${phoneClean}`} className="cta__phone" id="cta-phone">
+            <span className="cta__phone-icon">📞</span>
+            {phone}
+          </a>
+        </div>
+      </section>
+    </>
   );
 }

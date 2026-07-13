@@ -5,6 +5,9 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
+import { SiteSettings } from './src/payload/globals/SiteSettings'
+import { HomePage } from './src/payload/globals/HomePage'
+import { AboutPage } from './src/payload/globals/AboutPage'
 import { Users } from './src/payload/collections/Users'
 import { Media } from './src/payload/collections/Media'
 import { Posts } from './src/payload/collections/Posts'
@@ -21,6 +24,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Posts, Specialties],
+  globals: [SiteSettings, HomePage, AboutPage],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'gizli-sifre-degistirilecek',
   typescript: {
