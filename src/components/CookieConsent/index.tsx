@@ -11,11 +11,25 @@ export const CookieConsent: React.FC = () => {
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
       setShow(true);
+    } else if (consent === 'accepted') {
+      // If already accepted previously, grant consent on page load
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      }
     }
   }, []);
 
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted');
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted'
+      });
+    }
     setShow(false);
   };
 

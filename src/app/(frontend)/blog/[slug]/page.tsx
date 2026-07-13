@@ -34,8 +34,68 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = req.docs[0] as any;
   if (!post) notFound();
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sevinckarahanoglu.com";
+  
+  const schemaJSON = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${post.slug}`
+    },
+    "headline": post.title,
+    "image": post.heroImage?.url ? `${baseUrl}${post.heroImage.url}` : `${baseUrl}/logo.png`,
+    "author": {
+      "@type": "Person",
+      "name": "Dt. Sevinç Karahanoğlu"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SevinçDent Ağız ve Diş Sağlığı Polikliniği",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logo.png`
+      }
+    },
+    "datePublished": post.publishedAt || post.createdAt,
+    "dateModified": post.updatedAt || post.createdAt
+  };
+
+  const breadcrumbJSON = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${baseUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `${baseUrl}/blog/${post.slug}`
+      }
+    ]
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJSON) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJSON) }}
+      />
       <section style={{ 
         padding: '10rem 2rem 6rem', 
         backgroundColor: '#f0f4f8', 
