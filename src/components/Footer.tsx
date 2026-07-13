@@ -30,10 +30,12 @@ export default async function Footer() {
         
         {/* Brand */}
         <div>
-          <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#fff', fontWeight: 600 }}>Dt. Sevinç Karahanoğlu</h3>
+          <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem', color: '#fff', fontWeight: 600 }}>Dt. Sevinç Karahanoğlu</h3>
+          <p style={{ color: 'var(--color-primary-light)', fontStyle: 'italic', fontSize: '0.9rem', marginBottom: '1rem' }}>
+            "Değerde ilk olan, öncelikte ilktir."
+          </p>
           <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-            25 yıllık deneyimiyle, hastalarına konforlu ve güvenilir diş
-            hekimliği hizmeti sunan Marmara Üniversitesi mezunu uzman diş hekimi.
+            25 yıllık deneyimiyle, hastalarına konforlu ve güvenilir diş hekimliği hizmeti sunan Marmara Üniversitesi mezunu uzman diş hekimi.
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             {/* Instagram SVG */}
