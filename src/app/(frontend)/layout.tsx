@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     canonical: "https://sevinckarahanoglu.com",
   },
   manifest: "/manifest.json",
+  verification: {
+    google: "zB92t8fbVtpQs3jGmeU2NtrA4T5xurpELPU3EQmsBsc",
+  },
 };
 
 export default function RootLayout({
