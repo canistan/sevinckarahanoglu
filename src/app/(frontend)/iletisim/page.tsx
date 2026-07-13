@@ -12,6 +12,7 @@ export default async function Contact() {
 
   const phone = settings?.phone || '0552 170 66 00';
   const phoneClean = phone.replace(/[^0-9+]/g, '');
+  const waNumber = phoneClean.startsWith('0') ? '90' + phoneClean.slice(1) : phoneClean.replace('+', '');
   const email = settings?.email || 'sevincdent@gmail.com';
   const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
   // const workingHours = settings?.workingHours || 'Pazartesi – Cumartesi 09:00 – 19:30';
@@ -93,7 +94,7 @@ export default async function Contact() {
 
               <div style={{ marginTop: '3rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <a href={`tel:${phoneClean}`} className="btn btn--primary">Hemen Ara</a>
-                <a href={`https://wa.me/${phoneClean.replace('+', '')}?text=Merhaba,%20randevu%20almak%20istiyorum.`} target="_blank" rel="noopener noreferrer" className="btn btn--outline" style={{ borderColor: '#25D366', color: '#25D366' }}>WhatsApp'tan Yaz</a>
+                <a href={`https://wa.me/${waNumber}?text=Merhaba,%20randevu%20almak%20istiyorum.`} target="_blank" rel="noopener noreferrer" className="btn btn--outline" style={{ borderColor: '#25D366', color: '#25D366' }}>WhatsApp'tan Yaz</a>
               </div>
             </div>
 

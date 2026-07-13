@@ -18,6 +18,7 @@ export default async function Home() {
 
   const phone = settings?.phone || '0552 170 66 00';
   const phoneClean = phone.replace(/[^0-9+]/g, '');
+  const waNumber = phoneClean.startsWith('0') ? '90' + phoneClean.slice(1) : phoneClean.replace('+', '');
   const address = settings?.address || 'Barbaros Mh. Nuhkuyusu Cd No:48A, 34662 Üsküdar/İstanbul';
   
   // Hero Image'ı Payload'dan al, yoksa placeholder göster
@@ -50,7 +51,7 @@ export default async function Home() {
                 📞 Randevu Al
               </a>
               <a 
-                href={`https://wa.me/${phoneClean.replace('+', '')}?text=Merhaba,%20randevu%20almak%20istiyorum.`} 
+                href={`https://wa.me/${waNumber}?text=Merhaba,%20randevu%20almak%20istiyorum.`} 
                 className="btn btn--outline" 
                 id="hero-cta-whatsapp"
                 style={{ borderColor: '#25D366', color: '#25D366' }}

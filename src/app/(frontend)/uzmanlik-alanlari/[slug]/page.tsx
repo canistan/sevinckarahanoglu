@@ -39,6 +39,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
   const settings = await payload.findGlobal({ slug: 'site-settings' }) as any;
   const phone = settings?.phone || '0552 170 66 00';
   const phoneClean = phone.replace(/[^0-9+]/g, '');
+  const waNumber = phoneClean.startsWith('0') ? '90' + phoneClean.slice(1) : phoneClean.replace('+', '');
 
   return (
     <main>
@@ -136,7 +137,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             <a href={`tel:${phoneClean}`} className="btn btn--primary" style={{ backgroundColor: 'white', color: 'var(--color-primary)' }}>
               📞 Hemen Ara
             </a>
-            <a href={`https://wa.me/${phoneClean}?text=Merhaba,%20${specialty.title}%20hakkında%20bilgi%20almak%20istiyorum.`} target="_blank" rel="noopener noreferrer" className="btn btn--secondary" style={{ borderColor: 'white', color: 'white' }}>
+            <a href={`https://wa.me/${waNumber}?text=Merhaba,%20${specialty.title}%20hakkında%20bilgi%20almak%20istiyorum.`} target="_blank" rel="noopener noreferrer" className="btn btn--secondary" style={{ borderColor: 'white', color: 'white' }}>
               💬 WhatsApp'tan Yaz
             </a>
           </div>
