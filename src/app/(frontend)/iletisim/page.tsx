@@ -23,7 +23,7 @@ export default async function Contact() {
       <section className="page-header" style={{ 
         paddingTop: '150px', 
         paddingBottom: '60px', 
-        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/basin-hero.png)',
+        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/clinic-interior.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

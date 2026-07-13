@@ -19,7 +19,7 @@ export default function Header() {
       <div className="header__inner">
         <Link href="/" className="header__logo" aria-label="Ana Sayfa" onClick={() => setIsMenuOpen(false)}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-            <Image src="/logo-premium.png" alt="Dt. Sevinç Karahanoğlu Logo" width={45} height={45} style={{ borderRadius: '8px', objectFit: 'contain' }} />
+            <Image src="/logo-premium.png" alt="Dt. Sevinç Karahanoğlu Logo" width={45} height={45} style={{ borderRadius: '8px', objectFit: 'contain' }} priority />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span className="header__logo-name" style={{ marginBottom: '-2px' }}>Dt. Sevinç Karahanoğlu</span>
               <span className="header__logo-title">DİŞ HEKİMİ</span>

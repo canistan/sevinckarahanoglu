@@ -1083,16 +1083,39 @@ p {
    RESPONSIVE
    ==================================== */
 @media (max-width: 1024px) {
+  .hero {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+  }
   .hero__inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     text-align: center;
     gap: var(--space-10);
+    padding-top: var(--space-20);
+  }
+  .hero__title {
+    color: var(--color-white);
+  }
+  .hero__title-highlight {
+    background: none;
+    -webkit-text-fill-color: var(--color-primary-light);
+    color: var(--color-primary-light);
+  }
+  .hero__description {
+    color: var(--color-gray-100);
+    margin: 0 auto;
+  }
+  .hero__badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .hero__badge-dot {
+    background: var(--color-primary-light);
   }
   .hero__content {
     align-items: center;
-  }
-  .hero__description {
-    margin: 0 auto;
   }
   .hero__actions {
     justify-content: center;

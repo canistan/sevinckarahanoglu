@@ -31,7 +31,7 @@ export default async function Home() {
           <div className="hero__content">
             <div className="hero__badge animate-fade-in-up">
               <span className="hero__badge-dot"></span>
-              Diş Hekimi - Marmara Üniversitesi Mezunu
+              Diş Hekimi • Altunizade, Üsküdar
             </div>
 
             <h1 className="hero__title animate-fade-in-up delay-1">

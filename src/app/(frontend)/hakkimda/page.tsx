@@ -22,10 +22,19 @@ export default async function About() {
   return (
     <main>
       {/* Page Header */}
-      <section className="page-header" style={{ paddingTop: '150px', paddingBottom: '60px', backgroundColor: 'var(--color-primary-50)', textAlign: 'center' }}>
+      <section className="page-header" style={{ 
+        paddingTop: '150px', 
+        paddingBottom: '60px', 
+        backgroundImage: 'linear-gradient(rgba(0, 116, 123, 0.85), rgba(0, 116, 123, 0.95)), url(/images/hero-dentist.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        textAlign: 'center', 
+        color: 'white' 
+      }}>
         <div className="container">
-          <span className="section__subtitle">{aboutData?.subtitle || 'Diş hekimliğinde çeyrek asırlık tecrübe ve güven.'}</span>
-          <h1 className="section__title" style={{ marginTop: '0.5rem', marginBottom: '0' }}>{aboutData?.title || 'Hakkımda'}</h1>
+          <span className="section__subtitle" style={{ color: 'var(--color-primary-light)' }}>{aboutData?.subtitle || 'Uzman Diş Hekimi • Çeyrek asırlık tecrübe ve güven.'}</span>
+          <h1 className="section__title" style={{ marginTop: '0.5rem', marginBottom: '0', color: 'white' }}>{aboutData?.title || 'Hakkımda'}</h1>
         </div>
       </section>
 
@@ -43,6 +52,7 @@ export default async function About() {
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               ) : (
                 <Image
@@ -51,6 +61,7 @@ export default async function About() {
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               )}
             </div>
