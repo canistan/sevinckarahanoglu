@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const isLive = process.env.NEXT_PUBLIC_SITE_LIVE === "true";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

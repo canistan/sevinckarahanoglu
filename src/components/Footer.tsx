@@ -56,7 +56,6 @@ export default async function Footer() {
             <Link href="/hakkimda" className="footer__link">Hakkımda</Link>
             <Link href="/uzmanlik-alanlari" className="footer__link">Uzmanlık Alanları</Link>
             <Link href="/blog" className="footer__link">Blog</Link>
-            <Link href="/basinda" className="footer__link">Basında</Link>
           </nav>
         </div>
 
