@@ -3,7 +3,7 @@ import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sevinckarahanoglu.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sevinckarahanoglu.com";
   
   const payload = await getPayload({ config: configPromise });
   const postsReq = await payload.find({

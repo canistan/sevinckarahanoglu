@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sevinckarahanoglu.com"),
+  metadataBase: new URL("https://www.sevinckarahanoglu.com"),
   title: {
     default: "Dt. Sevinç Karahanoğlu | Diş Hekimi — Altunizade, İstanbul",
     template: "%s | Dt. Sevinç Karahanoğlu",

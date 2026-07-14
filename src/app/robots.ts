@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://sevinckarahanoglu.com/sitemap.xml",
+    sitemap: "https://www.sevinckarahanoglu.com/sitemap.xml",
   };
 }
