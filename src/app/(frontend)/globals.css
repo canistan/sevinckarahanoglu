@@ -825,7 +825,7 @@ p {
   flex-direction: column;
 }
 .specialty-card-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -1240,4 +1240,12 @@ p {
     position: sticky;
     top: 120px;
   }
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.footer-main {
+  padding: 4rem 2rem 2rem;
+  background-color: var(--color-primary-dark);
 }

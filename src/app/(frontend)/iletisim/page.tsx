@@ -1,9 +1,30 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: "İletişim | Dt. Sevinç Karahanoğlu",
   description: "SevinçDent Ağız ve Diş Sağlığı Polikliniği iletişim bilgileri, adres, telefon ve çalışma saatleri.",
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/iletisim",
+  },
+  openGraph: {
+    title: "İletişim | Dt. Sevinç Karahanoğlu",
+    description: "SevinçDent Ağız ve Diş Sağlığı Polikliniği iletişim bilgileri, adres, telefon ve çalışma saatleri.",
+    url: "https://www.sevinckarahanoglu.com/iletisim",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+    images: [
+      {
+        url: "/images/clinic-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Klinik",
+      },
+    ],
+  },
 };
 
 export default async function Contact() {

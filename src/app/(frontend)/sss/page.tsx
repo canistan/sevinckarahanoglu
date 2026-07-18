@@ -1,9 +1,22 @@
 import React from 'react';
 import { Accordion } from '@/components/Accordion';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Sıkça Sorulan Sorular (SSS) | Dt. Sevinç Karahanoğlu',
   description: 'Diş tedavileri, implant, kanal tedavisi ve diş beyazlatma hakkında hastalarımızın en çok merak ettiği soruların cevapları.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/sss",
+  },
+  openGraph: {
+    title: "Sıkça Sorulan Sorular (SSS) | Dt. Sevinç Karahanoğlu",
+    description: "Diş tedavileri, implant, kanal tedavisi ve diş beyazlatma hakkında hastalarımızın en çok merak ettiği soruların cevapları.",
+    url: "https://www.sevinckarahanoglu.com/sss",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+  },
 };
 
 const faqs = [

@@ -1,8 +1,29 @@
 import React from 'react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Çerez (Cookie) Politikası | Dt. Sevinç Karahanoğlu',
   description: 'Web sitemizde kullanılan çerezler ve yönetimleri hakkında bilgilendirme.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/cerez-politikasi",
+  },
+  openGraph: {
+    title: "Çerez (Cookie) Politikası | Dt. Sevinç Karahanoğlu",
+    description: "Web sitemizde kullanılan çerezler ve yönetimleri hakkında bilgilendirme.",
+    url: "https://www.sevinckarahanoglu.com/cerez-politikasi",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+    images: [
+      {
+        url: "/images/clinic-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Klinik",
+      },
+    ],
+  },
 };
 
 export default function CookiePolicyPage() {

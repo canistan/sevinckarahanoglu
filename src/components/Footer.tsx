@@ -17,7 +17,7 @@ export default async function Footer() {
   const linkedin = 'https://www.linkedin.com/in/sevinç-karahanoğlu-16848291/';
 
   return (
-    <footer className="footer" id="footer" style={{ padding: '4rem 2rem 2rem', backgroundColor: 'var(--color-primary-dark)' }}>
+    <footer className="footer-main" id="footer">
       <div className="footer__inner" style={{ 
         maxWidth: '1200px', 
         margin: '0 auto', 

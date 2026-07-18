@@ -1,8 +1,21 @@
 import React from 'react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'KVKK Aydınlatma Metni | Dt. Sevinç Karahanoğlu',
   description: 'Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma metnimiz.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/kvkk",
+  },
+  openGraph: {
+    title: "KVKK Aydınlatma Metni | Dt. Sevinç Karahanoğlu",
+    description: "Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma metnimiz.",
+    url: "https://www.sevinckarahanoglu.com/kvkk",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+  },
 };
 
 export default function KVKKPage() {

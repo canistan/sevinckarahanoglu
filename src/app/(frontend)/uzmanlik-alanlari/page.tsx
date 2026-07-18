@@ -3,9 +3,22 @@ import Image from 'next/image';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Uzmanlık Alanları | Dt. Sevinç Karahanoğlu',
   description: 'Kliniğimizde sunulan modern diş hekimliği tedavileri; implant, estetik gülüş tasarımı, diş beyazlatma ve ortodonti hizmetlerimiz.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/uzmanlik-alanlari",
+  },
+  openGraph: {
+    title: "Uzmanlık Alanları | Dt. Sevinç Karahanoğlu",
+    description: "Kliniğimizde sunulan modern diş hekimliği tedavileri; implant, estetik gülüş tasarımı, diş beyazlatma ve ortodonti hizmetlerimiz.",
+    url: "https://www.sevinckarahanoglu.com/uzmanlik-alanlari",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+  },
 };
 
 export default async function SpecialtiesPage() {

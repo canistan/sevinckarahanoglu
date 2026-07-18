@@ -2,6 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dt. Sevinç Karahanoğlu | Diş Hekimi — Altunizade, İstanbul',
+  description: '25 yıllık deneyime sahip uzman diş hekimi. İmplant, estetik diş hekimliği, zirkonyum kaplama. Altunizade, İstanbul.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com",
+  },
+  openGraph: {
+    title: "Dt. Sevinç Karahanoğlu | Diş Hekimi — Altunizade, İstanbul",
+    description: "25 yıllık deneyime sahip uzman diş hekimi. İmplant, estetik diş hekimliği, zirkonyum kaplama. Altunizade, İstanbul.",
+    url: "https://www.sevinckarahanoglu.com",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+    images: [
+      {
+        url: "/images/clinic-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Klinik",
+      },
+    ],
+  },
+};
 
 export default async function Home() {
   const payload = await getPayload({ config: configPromise })

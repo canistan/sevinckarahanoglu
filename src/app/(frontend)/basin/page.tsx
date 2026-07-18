@@ -1,8 +1,29 @@
 import React from 'react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Basın & Medya | Dt. Sevinç Karahanoğlu',
   description: 'Dt. Sevinç Karahanoğlu basın yansımaları, televizyon programları, YouTube videoları ve diş hekimliği üzerine röportajlar.',
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/basin",
+  },
+  openGraph: {
+    title: "Basın & Medya | Dt. Sevinç Karahanoğlu",
+    description: "Dt. Sevinç Karahanoğlu basın yansımaları, televizyon programları, YouTube videoları ve diş hekimliği üzerine röportajlar.",
+    url: "https://www.sevinckarahanoglu.com/basin",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+    images: [
+      {
+        url: "/images/basin-hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Basın & Medya",
+      },
+    ],
+  },
 };
 
 // Bu array'e kullanıcının vereceği YouTube Linkleri (veya ID'leri) eklenecektir.

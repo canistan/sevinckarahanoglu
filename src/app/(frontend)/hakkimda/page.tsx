@@ -3,9 +3,30 @@ import Link from "next/link";
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: "Hakkımda | Dt. Sevinç Karahanoğlu",
   description: "Diş hekimliğinde çeyrek asırlık tecrübesiyle Dt. Sevinç Karahanoğlu'nun biyografisi, eğitimi ve vizyonu.",
+  alternates: {
+    canonical: "https://www.sevinckarahanoglu.com/hakkimda",
+  },
+  openGraph: {
+    title: "Hakkımda | Dt. Sevinç Karahanoğlu",
+    description: "Diş hekimliğinde çeyrek asırlık tecrübesiyle Dt. Sevinç Karahanoğlu'nun biyografisi, eğitimi ve vizyonu.",
+    url: "https://www.sevinckarahanoglu.com/hakkimda",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Dt. Sevinç Karahanoğlu",
+    images: [
+      {
+        url: "/images/clinic-interior.png",
+        width: 1200,
+        height: 630,
+        alt: "Dt. Sevinç Karahanoğlu Klinik",
+      },
+    ],
+  },
 };
 
 export default async function About() {

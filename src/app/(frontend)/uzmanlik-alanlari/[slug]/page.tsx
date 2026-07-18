@@ -16,9 +16,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const specialty = req.docs[0];
   if (!specialty) return { title: 'Bulunamadı | Dt. Sevinç Karahanoğlu' };
 
+  const title = `${specialty.metaTitle || specialty.title} | Dt. Sevinç Karahanoğlu`;
+  const description = specialty.metaDescription || specialty.shortDescription;
+  const url = `https://www.sevinckarahanoglu.com/uzmanlik-alanlari/${resolvedParams.slug}`;
+
   return {
-    title: `${specialty.metaTitle || specialty.title} | Dt. Sevinç Karahanoğlu`,
-    description: specialty.metaDescription || specialty.shortDescription,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: 'article',
+      locale: 'tr_TR',
+      siteName: 'Dt. Sevinç Karahanoğlu',
+      images: [
+        {
+          url: specialty.featuredImage?.url || '/images/clinic-interior.png',
+          width: 1200,
+          height: 630,
+          alt: specialty.title,
+        },
+      ],
+    },
   };
 }
 
