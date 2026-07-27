@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = req.docs[0] as any;
   if (!post) notFound();
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sevinckarahanoglu.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sevinckarahanoglu.com";
   
   const schemaJSON = {
     "@context": "https://schema.org",

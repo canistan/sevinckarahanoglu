@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     siteName: "Dt. Sevinç Karahanoğlu",
-    url: "https://sevinckarahanoglu.com",
+    url: "https://www.sevinckarahanoglu.com",
     title: "Dt. Sevinç Karahanoğlu | Diş Hekimi",
     description: "25 yıllık deneyime sahip uzman diş hekimi. İmplant, estetik diş hekimliği, zirkonyum kaplama. Altunizade, İstanbul.",
     images: [
@@ -53,8 +53,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": "Dt. Sevinç Karahanoğlu | Üsküdar Diş Kliniği",
-    "image": "https://sevinckarahanoglu.com/logo.png",
-    "url": "https://sevinckarahanoglu.com",
+    "image": "https://www.sevinckarahanoglu.com/logo.png",
+    "url": "https://www.sevinckarahanoglu.com",
     "telephone": "+905521706600",
     "address": {
       "@type": "PostalAddress",
