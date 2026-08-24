@@ -111,7 +111,7 @@ export default function CookiePolicyPage() {
         </p>
         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
           <li><strong>Veri Sorumlusu:</strong> Dt. Sevinç Karahanoğlu</li>
-          <li><strong>Adres:</strong> Kocasinan Merkez Mah. Çelebioğlu Sk. No:8/4, 34744 Ataşehir/İstanbul</li>
+
           <li><strong>Telefon:</strong> 0530 454 8989</li>
           <li><strong>E-posta:</strong> sevinckarahanoglu@gmail.com</li>
         </ul>

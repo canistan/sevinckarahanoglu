@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       "@id": `${baseUrl}/blog/${post.slug}`
     },
     "headline": post.title,
-    "image": post.heroImage?.url ? `${baseUrl}${post.heroImage.url}` : `${baseUrl}/logo.png`,
+    "image": post.featuredImage?.url ? (post.featuredImage.url.startsWith('http') ? post.featuredImage.url : `${baseUrl}${post.featuredImage.url}`) : `${baseUrl}/logo.png`,
     "author": {
       "@type": "Person",
       "name": "Dt. Sevinç Karahanoğlu"
@@ -113,11 +113,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {post.heroImage?.url && (
+      {post.featuredImage?.url && (
         <section style={{ maxWidth: '1000px', margin: '-4rem auto 4rem', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
           <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: '20px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
             <Image 
-              src={post.heroImage.url} 
+              src={post.featuredImage.url} 
               alt={post.title} 
               fill 
               style={{ objectFit: 'cover' }} 
@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      <section style={{ padding: post.heroImage?.url ? '2rem 2rem 6rem' : '4rem 2rem 6rem' }}>
+      <section style={{ padding: post.featuredImage?.url ? '2rem 2rem 6rem' : '4rem 2rem 6rem' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--color-gray-600)' }}>
           {post.content?.root?.children?.map((block: any, i: number) => {
             if (block.type === 'paragraph') {
