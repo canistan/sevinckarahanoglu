@@ -8,6 +8,8 @@ export const metadata = {
   description: 'Diş sağlığı, estetik gülüş tasarımı, ağız bakım ipuçları ve modern dental tedaviler hakkında güncel makaleler.',
 };
 
+export const dynamic = 'force-dynamic'; // Next.js önbelleğini devre dışı bırak, her zaman güncel kalsın
+
 export default async function BlogPage() {
   const payload = await getPayload({ config: configPromise });
   
@@ -15,6 +17,11 @@ export default async function BlogPage() {
     collection: 'posts',
     depth: 1,
     limit: 12,
+    where: {
+      status: {
+        equals: 'published',
+      }
+    },
     sort: '-publishedAt',
   });
   
