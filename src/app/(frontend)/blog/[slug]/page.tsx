@@ -164,6 +164,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             }
             return null;
           })}
+
+          {/* Sıkça Sorulan Sorular */}
+          {post.faqs && post.faqs.length > 0 && (
+            <div style={{ marginTop: '4rem', paddingTop: '3rem', borderTop: '1px solid #eaeaea' }}>
+              <h2 style={{ color: 'var(--color-primary-dark)', marginBottom: '2rem', textAlign: 'center' }}>Sıkça Sorulan Sorular</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {post.faqs.map((faq: any, idx: number) => (
+                  <div key={idx} style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid #f0f4f8' }}>
+                    <h3 style={{ fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '0.8rem', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                      <span style={{ color: 'var(--color-accent)' }}>S:</span> {faq.question}
+                    </h3>
+                    <p style={{ lineHeight: '1.6', color: 'var(--color-gray-600)', margin: 0, paddingLeft: '1.5rem' }}>
+                      <strong style={{ color: 'var(--color-gray-800)' }}>C:</strong> {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>

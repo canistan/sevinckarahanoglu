@@ -50,7 +50,7 @@ export default async function BlogPage() {
             {posts.map((post: any) => (
               <Link href={`/blog/${post.slug}`} key={post.id} style={{ textDecoration: 'none', display: 'flex', height: '100%' }}>
                 <div className="blog-card-item">
-                  <div style={{ position: 'relative', width: '100%', height: '200px', backgroundColor: 'var(--color-primary-light)' }}>
+                  <div style={{ position: 'relative', width: '100%', height: '200px', backgroundColor: 'var(--color-primary-light)', overflow: 'hidden' }}>
                     {post.featuredImage?.url ? (
                       <Image 
                         src={post.featuredImage.url} 
@@ -72,7 +72,17 @@ export default async function BlogPage() {
                     <h2 style={{ fontSize: '1.4rem', color: 'var(--color-primary)', marginBottom: '1rem', lineHeight: '1.4' }}>
                       {post.title}
                     </h2>
-                    <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', marginBottom: '1.5rem', flexGrow: 1 }}>
+                    <p style={{ 
+                      color: 'var(--color-gray-600)', 
+                      lineHeight: '1.6', 
+                      marginBottom: '1.5rem', 
+                      flexGrow: 1,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 4,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}>
                       {post.excerpt || 'Bu makaleyi okumak için tıklayın.'}
                     </p>
                     <span style={{ color: 'var(--color-primary)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: 'auto' }}>
